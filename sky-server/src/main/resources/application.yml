@@ -1,0 +1,14 @@
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sky_take_out
+    username: root
+    password: password
+
+sky:
+  jwt:
+    admin-secret-key: itcast
+    admin-ttl: 7200000
+    admin-token-name: token
