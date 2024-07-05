@@ -12,3 +12,9 @@ sky:
     admin-secret-key: itcast
     admin-ttl: 7200000
     admin-token-name: token
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.sky.entity
+  configuration:
+    map-underscore-to-camel-case: true
