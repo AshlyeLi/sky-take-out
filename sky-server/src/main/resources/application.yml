@@ -12,6 +12,11 @@ sky:
     admin-secret-key: itcast
     admin-ttl: 7200000
     admin-token-name: token
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: LTAI5tKJoH6mCtdFDx7gwhRh
+    access-key-secret: wO6189unIrgpQaafAlenwPlIZqgH5s
+    bucket-name: sky-itcast-yun
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
