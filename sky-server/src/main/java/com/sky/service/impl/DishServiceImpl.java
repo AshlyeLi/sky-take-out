@@ -98,10 +98,14 @@ public class DishServiceImpl implements DishService {
         }
 
         //删除菜品数据
-        for(Long id : ids) {
+        /*for(Long id : ids) {
             dishMapper.deleteById(id);
             //删除菜品关联的口味数据
             dishFlavorMapper.deleteByDishId(id);
-        }
+        }*/
+
+        //优化：根据菜品id，批量删除口味和菜品数据
+        dishMapper.deleteByIds(ids);
+        dishFlavorMapper.deleteByDishIds(ids);
     }
 }
