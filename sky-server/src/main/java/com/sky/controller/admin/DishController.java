@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/admin/dish")
 @Api(tags = "菜品相关接口")
@@ -33,7 +35,7 @@ public class DishController {
         return Result.success();
     }
 
-    /**
+    /**dishDTO = {DishDTO@15173} "DishDTO(id=null, name=测试菜品, categoryId=18, price=25, image=https://sky-itcast-yun.oss-cn-beijing.aliyuncs.com/0357f29d-b457-466a-a323-fbc83dc665c3.png, description=, status=0, flavors=[DishFlavor(id=null, dishId=null, name=甜味, value=["无糖","少糖","半糖","多糖","全糖"])])"
      * 菜品分页查询
      * @param dishPageQueryDTO
      * @return
@@ -44,5 +46,18 @@ public class DishController {
         log.info("菜品分页查询：{}", dishPageQueryDTO);
         PageResult pageResult = dishService.pageQuery(dishPageQueryDTO);
         return Result.success(pageResult);
+    }
+
+    /**
+     * 批量删除菜品
+     * @param ids
+     * @return
+     */
+    @DeleteMapping("")
+    @ApiOperation("批量删除菜品")
+    public Result delete(@RequestParam List<Long> ids) {
+        log.info("批量删除菜品：{}", ids);
+        dishService.deleteBatch(ids);
+        return Result.success();
     }
 }
